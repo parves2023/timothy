@@ -1,1 +1,1 @@
-<h1> Admin Dashboard for Timberlence </h1>
+<h1> Admin Dashboard for Temothy </h1>
