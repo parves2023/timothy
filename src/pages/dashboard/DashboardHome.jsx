@@ -4,31 +4,35 @@ import AdminProfile from './components/AdminProfile';
 import StatsCards from './components/StatsCards';
 import UsersTable from './components/UsersTable';
 import { Graphs } from './components/Graphs';
+import Dashboard from '../../components/Dashboard';
 
 
 
 
 export default function DashboardHome() {
   return (
-    <div className="space-y-6 bg-gray-50 min-h-screen p-6 ">
+    <div className="space-y-6 bg-gray-50 min-h-screen px-6 ">
+      <AdminProfile headingText="Dashboard" />
 
-      
-      {/* Admin Profile */}
-      <AdminProfile />
+      <Dashboard></Dashboard>
 
-      {/* StatsCards */}
-      <StatsCards />
-
-
-      {/* Charts Section */}
-      <Graphs />
-
-      {/* Recent Users Table */}
-      <div className='overflow-x-auto overflow-auto' >
-        <UsersTable />
       </div>
-
-
-    </div>
   );
 }
+
+
+
+
+      // {/* Admin Profile */}
+      // {/* <AdminProfile />
+
+      // {/* StatsCards */}
+      // <StatsCards />
+
+
+      // {/* Charts Section */}
+      // <Graphs />
+
+      // {/* Recent Users Table */}
+      // <div className='overflow-x-auto overflow-auto' >
+      //   <UsersTable /> 
