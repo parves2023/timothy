@@ -10,6 +10,7 @@ import {
   Area,
 } from "recharts";
 
+// Chart data
 const data = [
   { name: "Jan", payments: 4000 },
   { name: "Feb", payments: 3000 },
@@ -25,56 +26,135 @@ const data = [
   { name: "Dec", payments: 1890 },
 ];
 
-const PaymentChart = () => {
-  return (
-    <div className="h-full rounded-lg col-span-4">
-      <div className="h-64">
-        <ResponsiveContainer width="100%" height="100%">
-          <LineChart data={data} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
-            <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#F3F4F6" />
-            <XAxis
-              dataKey="name"
-              tick={{ fontSize: 12 }}
-              axisLine={false}
-              tickLine={false}
-            />
-            <YAxis
-              tick={{ fontSize: 12 }}
-              axisLine={false}
-              tickLine={false}
-            />
-            <Tooltip
-              contentStyle={{
-                backgroundColor: "#FFD49D",
-                border: "none",
-                borderRadius: "8px",
-                color: "#000",
-                boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-              }}
-              labelStyle={{ fontWeight: "bold", color: "#000" }}
-              itemStyle={{ color: "#000" }}
-            />
-            {/* Shadow/area under the line */}
-            <Area
-              type="monotone"
-              dataKey="payments"
-              stroke="none"
-              fill="#FFD49D"
-              fillOpacity={0.2}
-            />
-            <Line
-              type="monotone"
-              dataKey="payments"
-              stroke="#FFD49D"
-              strokeWidth={2} // thinner line
-              dot={false}
-              activeDot={{ r: 5, fill: "#FFD49D", stroke: "#fff", strokeWidth: 2 }}
-            />
-          </LineChart>
-        </ResponsiveContainer>
+// Shadow line
+const shadowData = data.map(item => ({
+  ...item,
+  payments: item.payments - 100,
+}));
+
+// Custom tooltip
+const CustomTooltip = ({ active, payload, coordinate }) => {
+  if (active && payload && payload.length > 0 && coordinate) {
+    const value = payload[0].value.toFixed(2).replace(".", ",");
+
+    return (
+      <div
+        style={{
+          position: "absolute",
+          left: coordinate.x,
+          top: coordinate.y - 50,
+          transform: "translate(-50%, -100%)",
+          background: "#FFD49D",
+          borderRadius: "8px",
+          padding: "8px 12px",
+          fontWeight: "bold",
+          color: "#000",
+          fontSize: "14px",
+          textAlign: "center",
+          boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+          pointerEvents: "none",
+          zIndex: 999,
+        }}
+      >
+        ${value}
+        <div
+          style={{
+            position: "absolute",
+            bottom: -6,
+            left: "50%",
+            transform: "translateX(-50%)",
+            width: 0,
+            height: 0,
+            borderLeft: "6px solid transparent",
+            borderRight: "6px solid transparent",
+            borderTop: "6px solid #FFD49D",
+          }}
+        />
       </div>
+    );
+  }
+  return null;
+};
+
+// Chart component
+const PaymentChart = () => {
+return (
+  <div className=" col-span-4">
+    <h1 className="text-2xl font-semibold mb-6">Payment</h1>
+
+
+  <div className="rounded-lg col-span-4 p-4 bg-white shadow">
+
+    <div className="h-64">
+      <ResponsiveContainer width="100%" height="100%">
+        <LineChart data={data} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
+          {/* Gradient definition */}
+          <defs>
+            <linearGradient id="gradientLine" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stopColor="#ffdf3a" />
+              <stop offset="100%" stopColor="#ffb13a" />
+            </linearGradient>
+          </defs>
+
+          {/* Dashed grid */}
+          <CartesianGrid strokeDasharray="6 4" stroke="#F3F4F6" />
+
+          <XAxis
+            dataKey="name"
+            tick={{ fontSize: 12, dy: 5 }}
+            axisLine={false}
+            tickLine={false}
+          />
+          <YAxis
+            tick={{ fontSize: 12, dx: -10 }}
+            axisLine={false}
+            tickLine={false}
+            tickFormatter={(value) => `${value / 1000}k`}
+          />
+
+          <Tooltip content={<CustomTooltip />} />
+
+          {/* Shadow line */}
+          <Line
+            type="monotone"
+            data={shadowData}
+            dataKey="payments"
+            stroke="#ededed"
+            strokeWidth={2}
+            dot={false}
+            isAnimationActive={false}
+          />
+
+          {/* Area under main line */}
+          <Area
+            type="monotone"
+            dataKey="payments"
+            stroke="none"
+            fill="#FFD49D"
+            fillOpacity={0.2}
+          />
+
+          {/* Main Line */}
+          <Line
+            type="monotone"
+            dataKey="payments"
+            stroke="url(#gradientLine)"
+            strokeWidth={2}
+            dot={false}
+            activeDot={{
+              r: 6,
+              fill: "#fff",
+              stroke: "#FFD49D",
+              strokeWidth: 3,
+            }}
+          />
+        </LineChart>
+      </ResponsiveContainer>
     </div>
-  );
+  </div>
+  </div>
+);
+
 };
 
 export default PaymentChart;

@@ -14,7 +14,7 @@ import UserSupportTickets from "./dashboard/UserSupportTickets";
 const Dashboard = () => {
   return (
     <div className="px-6 bg-gray-50 min-h-screen font-sans">
-      <h1 className="text-2xl font-bold mb-6">Overview</h1>
+      <h1 className="text-2xl font-semibold mb-6">Overview</h1>
 
       <div className="grid grid-cols-1 md:grid-cols-10 gap-6 mb-6">
         <div className="col-span-1 md:col-span-6 rounded-lg">
@@ -23,7 +23,7 @@ const Dashboard = () => {
             <OverviewCard title="Active Contracts" value="1,209" trend="↓ 5%" />
           </div>
 
-          <h3 className="text-sm font-medium mb-4">Payments</h3>
+       
           <div className="w-full grid grid-cols-6 gap-6">
             <PaymentChart />
             <div className="h-full rounded-lg col-span-2">

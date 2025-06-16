@@ -137,12 +137,15 @@ body{
 
 .custom-shadow {
   box-shadow:
+    0 -4px 6px rgba(0, 0, 0, 0.1),      /* top shadow */
+    0 -1px 3px rgba(0, 0, 0, 0.1),      /* subtle top inner depth */
     0 0 30px rgba(255, 255, 255, 0.6),  /* strong white glow */
     0 0 60px rgba(255, 255, 255, 0.4),  /* extended outer glow */
     0 4px 6px rgba(0, 0, 0, 0.2),       /* base shadow */
     0 1px 3px rgba(0, 0, 0, 0.1);       /* inner depth */
   transition: box-shadow 0.3s ease-in-out;
 }
+
 
 
 
