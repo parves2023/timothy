@@ -32,8 +32,10 @@ const Dashboard = () => {
           </div>
         </div>
 
-        <div className="col-span-1 md:col-span-4 bg-white rounded-lg p-4 shadow-sm">
+        <div className="col-span-1 md:col-span-4 bg-white rounded-lg p-4 shadow-sm space-y-6">
           <CommunicationSupport />
+
+          <UserSupportTickets />
         </div>
       </div>
 

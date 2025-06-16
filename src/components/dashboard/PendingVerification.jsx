@@ -22,8 +22,8 @@ const PendingVerification = () => {
         <div className="flex flex-col items-center">
           <div className="flex justify-around w-full mb-2">
             <div className="text-3xl font-normal">{total.toLocaleString()}</div>
-            <div className="text-3xl font-normal text-gray-400">
-              <HiDotsVertical />
+            <div className="text-2xl font-normal text-gray-400">
+              <HiDotsVertical className="mt-1" />
             </div>
           </div>
 
