@@ -2,9 +2,8 @@ import { Outlet, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { useEffect, useState, useRef } from 'react';
 import Logo from '../assets/logo.png';
 import {
-  FiHome, FiUser, FiSettings, FiCreditCard, FiLogOut, FiMenu, FiX
+   FiLogOut, FiMenu, FiX
 } from 'react-icons/fi';
-import { Link } from 'react-router-dom';
 import { RxDashboard } from "react-icons/rx";
 import { TbUserHexagon } from "react-icons/tb";
 import { MdOutlinePayments, MdOutlineSupportAgent } from "react-icons/md";
@@ -52,10 +51,16 @@ export default function DashboardLayout() {
 
   const renderNavLinks = () => (
     <>
-      <NavLink to="/dashboard/statistics" className={({ isActive }) => linkClass(isActive)}>
-        <RxDashboard className="text-lg" />
-        Dashboard
-      </NavLink>
+<NavLink
+  to="/dashboard/statistics"
+  className={({ isActive }) =>
+    linkClass(isActive || location?.pathname === "/")
+  }
+>
+  <RxDashboard className="text-lg" />
+  Dashboard
+</NavLink>
+
 
       <NavLink to="/dashboard/user-info" className={({ isActive }) => linkClass(isActive)}>
         <TbUserHexagon className="text-lg" />
