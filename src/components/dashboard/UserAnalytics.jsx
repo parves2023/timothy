@@ -47,7 +47,7 @@ const UserAnalytics = ({
       <div className="bg-white rounded-2xl shadow-lg border border-gray-100 w-full mx-auto overflow-hidden">
         {/* Header */}
         <div className="flex justify-between items-center px-6 pt-6">
-          <h3 className="text-lg font-semibold text-gray-800">{subtitle}</h3>
+          <h3 className="text-lg font-semibold text-gray-600">{subtitle}</h3>
           <div className="flex items-center text-xs text-gray-500 bg-gray-50 px-3 py-1.5 rounded-full border">
             Today <IoIosArrowDown className="ml-1 text-gray-400" size={12} />
           </div>

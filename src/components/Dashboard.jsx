@@ -11,6 +11,10 @@ import PendingVerification from "./Dashboard/PendingVerification";
 import CommunicationSupport from "./dashboard/CommunicationSupport";
 import UserSupportTickets from "./dashboard/UserSupportTickets";
 import UserAnalytics from "./dashboard/UserAnalytics";
+import RevenueChart from "./dashboard/RevinueChart";
+import FinancialDashboard from "./dashboard/RevinueChart";
+import CancellationRefunds from "./dashboard/CancellationRefunds";
+import ContractManagement from "./dashboard/CircularProgress";
 
 const Dashboard = () => {
   return (
@@ -33,12 +37,20 @@ const Dashboard = () => {
           </div>
 
 <UserAnalytics></UserAnalytics>
+
+  <FinancialDashboard></FinancialDashboard>
+
+  <CancellationRefunds></CancellationRefunds>
+
+  <ContractManagement></ContractManagement>
         </div>
 
         <div className="col-span-1 md:col-span-4 bg-white rounded-lg p-4 shadow-sm space-y-6">
           <CommunicationSupport />
 
           <UserSupportTickets />
+
+        
         </div>
       </div>
 
