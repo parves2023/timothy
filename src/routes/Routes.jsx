@@ -11,6 +11,7 @@ import Subscription from "../pages/dashboard/Subscription";
 import ProfileSettings from "../components/ProfileSetting";
 import TermsPage from "../pages/dashboard/TermsPage";
 import Privacypage from "../pages/dashboard/Privacypage";
+import Register from "../pages/Register/Register"
 
 
 const router = createBrowserRouter([
@@ -23,6 +24,7 @@ const router = createBrowserRouter([
   },
   { path: '*', element: <NotFound /> },
   { path: '/login', element: <Login /> },
+  { path: '/register', element:  <Register></Register> },
   { path: '/forgotpass', element: <ForgotPass /> },
   { path: '/checkemail', element: <Checkemail /> },
   { path: '/reset-password', element: <ResetPassword /> },

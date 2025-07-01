@@ -36,9 +36,9 @@ const Login = () => {
 <div className="relative">
         <img src={signInIMG} className="absolute w-[50rem] h-[50rem] top-0 right-0"  alt="sign-in-image" />
       <div className="absolute left-0 min-h-screen flex items-center container mx-auto">
-      <div className="bg-white mt-[1rem] ml-[15rem] p-8 py-20 rounded-2xl shadow-md w-full max-w-md min-h-[40rem] flex flex-col justify-center">
-<h2 className="text-2xl font-bold text-gray-900">Welcome Back</h2>
-<p className="text-sm text-gray-600 mt-2">
+      <div className="bg-white mt-[1rem] ml-[15rem] p-8 py-20 rounded-2xl  w-full max-w-md min-h-[40rem] flex flex-col justify-center">
+<h2 className="text-3xl font-bold text-[#ff9000]">Welcome Back</h2>
+<p className="text-lg font-semibold mb-8 text-gray-600 mt-2">
   Enter your email and password to sign in
 </p>
 
@@ -46,14 +46,14 @@ const Login = () => {
 
 <form onSubmit={handleLogin} className="space-y-6">
   <div>
-    <label className="block text-sm font-medium text-gray-700">Email</label>
+    <label className="block text-sm font-medium text-gray-900">Email</label>
     <input
       type="email"
       name="email"
       required
       ref={emailRef}
       placeholder="Your email address"
-      className="mt-1 w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-orange-500"
+      className="mt-1 w-full px-4 py-4 border border-gray-300 rounded-3xl focus:outline-none focus:ring-2 focus:ring-orange-500"
     />
   </div>
   <div>
@@ -63,9 +63,9 @@ const Login = () => {
       name="password"
       required
       placeholder="Your password"
-      className="mt-1 w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-orange-500"
+      className="mt-1 w-full px-4 py-4 border border-gray-300 rounded-3xl focus:outline-none focus:ring-2 focus:ring-orange-500"
     />
-    <div className="flex justify-between items-center mt-2 text-sm">
+    <div className="flex justify-between items-center my-5 mt-8 text-sm">
       <label className="flex items-center cursor-pointer">
         {/* Toggle Switch */}
         <div className="relative">
@@ -77,7 +77,7 @@ const Login = () => {
       </label>
       <span
         onClick={handleForgotPassword}
-        className="cursor-pointer hover:underline"
+        className="cursor-pointer hover:underline hidden"
       >
         Forgot password?
       </span>
@@ -85,7 +85,7 @@ const Login = () => {
   </div>
   <button
     type="submit"
-    className="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 rounded-md transition"
+    className="w-full bg-[#ff9000] hover:bg-orange-500 text-white font-semibold py-4 rounded-2xl transition"
   >
     Sign In
   </button>
@@ -94,10 +94,10 @@ const Login = () => {
 
         {error && <p className="text-red-600 text-center text-sm mt-3">{error}</p>}
 
-        <p className="text-sm text-center mt-4 hidden">
+        <p className="text-lg font-semibold text-gray-400 text-center mt-4 ">
           Do not have an account?{" "}
-          <Link to="/register" className="text-blue-600 font-semibold hover:underline">
-            Register
+          <Link to="/register" className="text-[#ff9000] font-semibold hover:underline">
+            Sign up
           </Link>
         </p>
 
@@ -106,6 +106,7 @@ const Login = () => {
         </div>
       </div>
     </div>
+
 </div>
   );
 };

@@ -1,24 +1,15 @@
-import { Link, useNavigate } from "react-router-dom";
-import { useContext, useState } from "react";
-import { AuthContext } from "../../providers/AuthProvider";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import { updateProfile } from "firebase/auth";
+import React, { useState } from 'react';
+import { Facebook, Apple } from 'lucide-react';
 
 const Register = () => {
-  const navigate = useNavigate();
-  const { createUser,auth } = useContext(AuthContext);
-
-  const [passwordError, setPasswordError] = useState("");
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [rememberMe, setRememberMe] = useState(false);
+  const [passwordError, setPasswordError] = useState('');
 
   const handleRegister = (e) => {
     e.preventDefault();
-
-    const form = new FormData(e.currentTarget);
-    const name = form.get("name");
-    const photo = form.get("photo");
-    const email = form.get("email");
-    const password = form.get("password");
 
     if (password.length < 6 || !/[A-Z]/.test(password) || !/[a-z]/.test(password)) {
       setPasswordError("Password must be at least 6 characters long, must include at least one Uppercase and Lowercase");
@@ -27,109 +18,143 @@ const Register = () => {
       setPasswordError("");
     }
 
-    // Create user
-    createUser(email, password, name, photo)
-    .then((result) => {
-      // Update the user's profile with the name and photo URL
-      updateProfile(auth.currentUser, {
-        displayName: name, photoURL: photo
-      }).then(() => {
-          toast.success("Registration successful!", {
-            position: "top-center",
-            autoClose: 2000,
-          });
-          setTimeout(() => navigate("/"), 2000); // Delay navigation to show toast
-        })
-        .catch((error) => {
-          toast.error(`error ${error.message}`, {
-            position: "top-center",
-            autoClose: 2000,
-          });
-        });
-    })
-    .catch((error) => {
-      toast.error(`error ${error.message}`, {
-        position: "top-center",
-        autoClose: 2000,
-      });
-    });
+    // Add your registration logic here
+    console.log('Registration attempt:', { name, email, password, rememberMe });
+  };
 
+  const handleSocialLogin = (provider) => {
+    console.log(`Login with ${provider}`);
   };
 
   return (
-    <div className="my-7">
-      <div>
-      <h1 className="text-3xl mt-7 ralewayfont font-bold text-center mb-6">
-        Please <span className="text-[#309255]">Register</span>
-      </h1>
-        <form onSubmit={handleRegister} className="md:w-3/4 lg:w-1/2 mx-auto relative">
-          <ToastContainer
-            position="top-center"
-            hideProgressBar
-            newestOnTop
-            closeOnClick
-            className="absolute"
-          />
-          <div className="form-control">
-            <label className="label">
-              <span className="label-text">Name</span>
+    <div className="min-h-screen bg-white relative">
+      {/* Top Orange Section */}
+      <div className=" relative overflow-hidden py-40">
+        <img src="https://i.ibb.co/XxTSZFzf/SignUp.png" alt="signupimg"  className='absolute h-full top-0 w-full px-6 py-6'/>
+        
+        <div className="text-center relative z-10">
+          <h1 className="text-3xl font-bold text-gray-800 mb-2 font-sans">Welcome!</h1>
+          <p className="text-gray-600 text-lg font-semibold">
+            Lorem ipsum dolor sit amet consectetur<br />
+            adipiscing elit sed do eiusmod tempor
+          </p>
+        </div>
+      </div>
+
+      {/* Registration Form */}
+      <div className="px-8 py-8 w-[26rem] border rounded-2xl absolute top-72 left-1/2 -translate-x-1/2 bg-white">
+        {/* Social Login Section */}
+        <div className="bg-white rounded-lg shadow-sm border p-4 mb-6">
+          <p className="text-center text-sm text-gray-600 mb-4">Register with</p>
+          <div className="flex justify-center gap-4">
+            <button 
+              onClick={() => handleSocialLogin('Facebook')}
+              className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors"
+            >
+              <Facebook size={18} className="text-white" />
+            </button>
+            <button 
+              onClick={() => handleSocialLogin('Apple')}
+              className="w-10 h-10 bg-black rounded-full flex items-center justify-center hover:bg-gray-800 transition-colors"
+            >
+              <Apple size={18} className="text-white" />
+            </button>
+            <button 
+              onClick={() => handleSocialLogin('Google')}
+              className="w-10 h-10 bg-red-500 rounded-full flex items-center justify-center hover:bg-red-600 transition-colors"
+            >
+              <span className="text-white font-bold text-sm">G</span>
+            </button>
+          </div>
+        </div>
+
+        {/* OR Divider */}
+        <div className="text-center mb-6">
+          <span className="text-gray-400 text-sm">or</span>
+        </div>
+
+        {/* Form Fields */}
+        <div className="space-y-4">
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Name
             </label>
             <input
               type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Your full name"
+              className="w-full px-3 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent text-sm"
               required
-              name="name"
-              placeholder="Name"
-              className="input input-bordered"
             />
           </div>
-          <div className="form-control">
-            <label className="label">
-              <span className="label-text">Photo URL</span>
-            </label>
-            <input
-              type="text"
-              required
-              name="photo"
-              placeholder="Photo URL"
-              className="input input-bordered"
-            />
-          </div>
-          <div className="form-control">
-            <label className="label">
-              <span className="label-text">Email</span>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Email
             </label>
             <input
               type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Your email address"
+              className="w-full px-3 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent text-sm"
               required
-              name="email"
-              placeholder="Email"
-              className="input input-bordered"
             />
           </div>
-          <div className="form-control">
-            <label className="label">
-              <span className="label-text">Password</span>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Password
             </label>
             <input
               type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Your password"
+              className="w-full px-3 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent text-sm"
               required
-              name="password"
-              placeholder="Password"
-              className="input input-bordered"
             />
             {passwordError && (
-              <p className="text-red-600 text-sm mt-2">{passwordError}</p>
+              <p className="text-red-600 text-xs mt-1">{passwordError}</p>
             )}
           </div>
-          <div className="form-control mt-6">
-            <button className="btn bg-green-50 px-10 hover:bg-green-800 hover:text-white font-medium border border-green-500">Register</button>
+
+          {/* Remember Me Toggle */}
+          <div className="flex items-center">
+            <label className="flex items-center cursor-pointer">
+              <div className="relative">
+                <input
+                  type="checkbox"
+                  checked={rememberMe}
+                  onChange={(e) => setRememberMe(e.target.checked)}
+                  className="sr-only"
+                />
+                <div className={`w-10 h-6 rounded-full transition-colors ${
+                  rememberMe ? 'bg-orange-500' : 'bg-gray-300'
+                }`}>
+                  <div className={`w-4 h-4 bg-white rounded-full shadow-md transform transition-transform ${
+                    rememberMe ? 'translate-x-5' : 'translate-x-1'
+                  } mt-1`}></div>
+                </div>
+              </div>
+              <span className="ml-3 text-sm text-gray-700">Remember me</span>
+            </label>
           </div>
-        </form>
-        <p className="text-center mt-4">
+
+          <button
+            onClick={handleRegister}
+            className="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-4 rounded-lg transition-colors"
+          >
+            Register
+          </button>
+        </div>
+
+        <p className="text-center text-sm text-gray-500 mt-6">
           Already have an account?{" "}
-          <Link className="text-blue-600 font-bold" to="/login">
-            Login
-          </Link>
+          <span className="text-orange-500 font-medium hover:underline cursor-pointer">
+            Sign in
+          </span>
         </p>
       </div>
     </div>
