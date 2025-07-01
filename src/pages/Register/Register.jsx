@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Facebook, Apple } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Register = () => {
   const [name, setName] = useState('');
@@ -27,7 +28,7 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white relative">
+    <div className="min-h-screen mb-32 bg-white relative">
       {/* Top Orange Section */}
       <div className=" relative overflow-hidden py-40">
         <img src="https://i.ibb.co/XxTSZFzf/SignUp.png" alt="signupimg"  className='absolute h-full top-0 w-full px-6 py-6'/>
@@ -53,12 +54,7 @@ const Register = () => {
             >
               <Facebook size={18} className="text-white" />
             </button>
-            <button 
-              onClick={() => handleSocialLogin('Apple')}
-              className="w-10 h-10 bg-black rounded-full flex items-center justify-center hover:bg-gray-800 transition-colors"
-            >
-              <Apple size={18} className="text-white" />
-            </button>
+          
             <button 
               onClick={() => handleSocialLogin('Google')}
               className="w-10 h-10 bg-red-500 rounded-full flex items-center justify-center hover:bg-red-600 transition-colors"
@@ -130,10 +126,10 @@ const Register = () => {
                   onChange={(e) => setRememberMe(e.target.checked)}
                   className="sr-only"
                 />
-                <div className={`w-10 h-5 rounded-full transition-colors ${
+                <div className={`w-[2.6rem] h-5 rounded-full transition-colors ${
                   rememberMe ? 'bg-orange-500' : 'bg-gray-300'
                 }`}>
-                  <div className={`w-4 h-4 bg-white rounded-full shadow-md transform transition-transform ${
+                  <div className={`w-5 h-5 bg-white rounded-full shadow-md transform transition-transform ${
                     rememberMe ? 'translate-x-5' : 'translate-x-1'
                   } mt-1`}></div>
                 </div>
@@ -152,9 +148,11 @@ const Register = () => {
 
         <p className="text-center text-sm text-gray-500 mt-6">
           Already have an account?{" "}
+        <Link to={`/login`}>
           <span className="text-orange-500 font-medium hover:underline cursor-pointer">
             Sign in
           </span>
+          </Link>
         </p>
       </div>
     </div>

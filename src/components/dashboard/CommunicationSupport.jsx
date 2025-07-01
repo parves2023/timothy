@@ -32,7 +32,7 @@ const CommunicationSupport = () => {
 
       {/* Main Content Layout */}
       <div className="space-y-6">
-        <div className="flex flex-wrap justify-center gap-6 md:gap-20">
+        <div className="flex justify-center gap-6 md:gap-10">
           {/* Pie Chart */}
           <div className="flex justify-center">
             <div className="w-48 h-48">
@@ -66,7 +66,7 @@ const CommunicationSupport = () => {
                   <TrendingUp className="w-4 h-4 text-green-600" />
                 </div>
                 <div>
-                  <p className="text-xl text-gray-500 ">Total Issues</p>
+                  <p className="text-md text-gray-500 ">Total Issues</p>
                   <p className="text-lg font-bold text-gray-900">120</p>
                 </div>
               </div>
@@ -77,7 +77,7 @@ const CommunicationSupport = () => {
                   <HiArrowTrendingDown className="w-4 h-4 text-orange-600" />
                 </div>
                 <div>
-                  <p className="text-xl text-gray-500">Pending Issues</p>
+                  <p className="text-md text-gray-500">Pending Issues</p>
                   <p className="text-lg font-bold text-gray-900">1,009,123</p>
                 </div>
               </div>
