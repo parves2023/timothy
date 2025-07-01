@@ -42,7 +42,7 @@ const Register = () => {
       </div>
 
       {/* Registration Form */}
-      <div className="px-8 py-8 w-[26rem] border rounded-2xl absolute top-72 left-1/2 -translate-x-1/2 bg-white">
+      <div className="px-12 py-8 w-[29rem] border rounded-2xl absolute top-72 left-1/2 -translate-x-1/2 bg-white">
         {/* Social Login Section */}
         <div className="bg-white rounded-lg shadow-sm border p-4 mb-6">
           <p className="text-center text-sm text-gray-600 mb-4">Register with</p>
@@ -130,7 +130,7 @@ const Register = () => {
                   onChange={(e) => setRememberMe(e.target.checked)}
                   className="sr-only"
                 />
-                <div className={`w-10 h-6 rounded-full transition-colors ${
+                <div className={`w-10 h-5 rounded-full transition-colors ${
                   rememberMe ? 'bg-orange-500' : 'bg-gray-300'
                 }`}>
                   <div className={`w-4 h-4 bg-white rounded-full shadow-md transform transition-transform ${
