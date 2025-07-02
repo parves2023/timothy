@@ -67,7 +67,7 @@ export default function DashboardLayout() {
         Users
       </NavLink>
 
-      <NavLink to="/dashboard/subscription" className={({ isActive }) => linkClass(isActive)}>
+      <NavLink to="/dashboard/financialpayments" className={({ isActive }) => linkClass(isActive)}>
         <MdOutlinePayments className="text-lg" />
         Finances
       </NavLink>

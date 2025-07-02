@@ -12,6 +12,7 @@ import ProfileSettings from "../components/ProfileSetting";
 import TermsPage from "../pages/dashboard/TermsPage";
 import Privacypage from "../pages/dashboard/Privacypage";
 import Register from "../pages/Register/Register"
+import FinancialPayments from "../pages/dashboard/FinancialPayments/FinancialPayments";
 
 
 const router = createBrowserRouter([
@@ -36,7 +37,7 @@ const router = createBrowserRouter([
   children: [
     { path: 'statistics', element: <DashboardHome /> },
     { path: 'user-info', element: <UserInformation /> },
-    { path: 'subscription', element: <Subscription /> },
+    { path: 'financialpayments', element: <FinancialPayments /> },
     { path: 'settings', element: <ProfileSettings /> },
     { path: 'settings/terms', element: <TermsPage /> },
     { path: 'settings/privacy', element: <Privacypage /> },
