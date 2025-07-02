@@ -13,6 +13,7 @@ import TermsPage from "../pages/dashboard/TermsPage";
 import Privacypage from "../pages/dashboard/Privacypage";
 import Register from "../pages/Register/Register"
 import FinancialPayments from "../pages/dashboard/FinancialPayments/FinancialPayments";
+import Contracts from "../pages/dashboard/Contracts/Contracts";
 
 
 const router = createBrowserRouter([
@@ -38,6 +39,7 @@ const router = createBrowserRouter([
     { path: 'statistics', element: <DashboardHome /> },
     { path: 'user-info', element: <UserInformation /> },
     { path: 'financialpayments', element: <FinancialPayments /> },
+    { path: 'contracts', element: <Contracts /> },
     { path: 'settings', element: <ProfileSettings /> },
     { path: 'settings/terms', element: <TermsPage /> },
     { path: 'settings/privacy', element: <Privacypage /> },
