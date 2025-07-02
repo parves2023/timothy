@@ -40,6 +40,8 @@ const router = createBrowserRouter([
     { path: 'user-info', element: <UserInformation /> },
     { path: 'financialpayments', element: <FinancialPayments /> },
     { path: 'contracts', element: <Contracts /> },
+    { path: 'userroles', element: <div>user roles</div> },
+    { path: 'support', element: <div>user support</div> },
     { path: 'settings', element: <ProfileSettings /> },
     { path: 'settings/terms', element: <TermsPage /> },
     { path: 'settings/privacy', element: <Privacypage /> },

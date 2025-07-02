@@ -2,7 +2,7 @@ import { Outlet, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { useEffect, useState, useRef } from 'react';
 import Logo from '../assets/logo.png';
 import {
-   FiLogOut, FiMenu, FiX
+   FiLogOut, FiMenu, FiUsers, FiX
 } from 'react-icons/fi';
 import { RxDashboard } from "react-icons/rx";
 import { TbUserHexagon } from "react-icons/tb";
@@ -79,7 +79,11 @@ export default function DashboardLayout() {
 
       <NavLink to="/dashboard/support" className={({ isActive }) => linkClass(isActive)}>
         <MdOutlineSupportAgent className="text-lg" />
-        Support
+        User Support
+      </NavLink>
+      <NavLink to="/dashboard/userroles" className={({ isActive }) => linkClass(isActive)}>
+        <FiUsers className="text-lg" />
+        Roles
       </NavLink>
 
       <button
