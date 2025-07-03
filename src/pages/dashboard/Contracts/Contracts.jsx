@@ -9,6 +9,7 @@ import {
   ChevronLeft,
   ChevronRight
 } from 'lucide-react';
+import AdminProfile from '../components/AdminProfile';
 
 const Contracts = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -146,11 +147,13 @@ const Contracts = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 p-6 font-sans">
-      <div className="max-w-7xl mx-auto">
+<div className='px-6 bg-gray-50 min-h-screen font-sans'>
+    <AdminProfile headingText={`Contracts`} ></AdminProfile>
+      <div className="min-h-screen bg-gray-50 p-6 font-sans">
+      <div className=" mx-auto">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Contracts</h1>
+          <h1 className="text-2xl font-semibold mb-6">Contracts</h1>
         </div>
 
         {/* Filters and Actions */}
@@ -309,6 +312,7 @@ const Contracts = () => {
         </div>
       </div>
     </div>
+</div>
   );
 };
 

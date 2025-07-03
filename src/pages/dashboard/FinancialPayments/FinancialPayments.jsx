@@ -9,6 +9,7 @@ import {
   ChevronLeft,
   ChevronRight
 } from 'lucide-react';
+import AdminProfile from '../components/AdminProfile';
 
 const FinancialPayments = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -138,11 +139,14 @@ const FinancialPayments = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 p-6">
-      <div className="max-w-7xl mx-auto">
+<div className='px-6 bg-gray-50 min-h-screen font-sans'>
+    <AdminProfile headingText={`Payments`} ></AdminProfile>
+
+      <div className="min-h-screen bg-gray-50 p-6">
+      <div className=" mx-auto">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Payments</h1>
+          <h1 className="text-2xl font-semibold mb-6">Payments</h1>
         </div>
 
         {/* Filters and Actions */}
@@ -327,6 +331,7 @@ const FinancialPayments = () => {
         </div>
       </div>
     </div>
+</div>
   );
 };
 

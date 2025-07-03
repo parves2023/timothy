@@ -81,10 +81,10 @@ export default function DashboardLayout() {
         <MdOutlineSupportAgent className="text-lg" />
         User Support
       </NavLink>
-      <NavLink to="/dashboard/userroles" className={({ isActive }) => linkClass(isActive)}>
+      {/* <NavLink to="/dashboard/userroles" className={({ isActive }) => linkClass(isActive)}>
         <FiUsers className="text-lg" />
         Roles
-      </NavLink>
+      </NavLink> */}
 
       <button
         onClick={handleSettingsClick}
