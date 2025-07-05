@@ -198,9 +198,7 @@ const FinancialPayments = () => {
             <table className="w-full">
               <thead className="bg-gray-50 border-b border-gray-200">
                 <tr>
-                  <th className="text-left px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    <input type="checkbox" className="rounded border-gray-300" />
-                  </th>
+                  
                   <th className="text-left px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">
                     ID
                   </th>
@@ -236,9 +234,7 @@ const FinancialPayments = () => {
               <tbody className="bg-white divide-y divide-gray-200">
                 {payments.map((payment, index) => (
                   <tr key={index} className="hover:bg-gray-50">
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <input type="checkbox" className="rounded border-gray-300" />
-                    </td>
+                    
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                       {payment.id}
                     </td>
