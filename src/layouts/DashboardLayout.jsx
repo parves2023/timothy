@@ -81,10 +81,24 @@ export default function DashboardLayout() {
         <MdOutlineSupportAgent className="text-lg" />
         User Support
       </NavLink>
+
+
+      <NavLink to="/dashboard/settings" className={({ isActive }) => linkClass(isActive)}>
+        <IoSettingsOutline className="text-lg" />
+        Settings
+      </NavLink>
       {/* <NavLink to="/dashboard/userroles" className={({ isActive }) => linkClass(isActive)}>
         <FiUsers className="text-lg" />
         Roles
       </NavLink> */}
+
+      {/* <button
+        onClick={handleSettingsClick}
+        className={`${navLinkBase} ${isSettingsActive ? "bg-orange-200 text-black" : "text-[#BCA88F] hover:bg-gray-100"}`}
+      >
+        <IoSettingsOutline className="text-lg" />
+        Settings
+      </button>
 
       <button
         onClick={handleSettingsClick}
@@ -93,20 +107,11 @@ export default function DashboardLayout() {
         <IoSettingsOutline className="text-lg" />
         Settings
       </button>
-
-      {showSettingsSubmenu && (
-        <div ref={submenuRef} className="ml-8 mt-1 flex flex-col gap-1 text-sm">
-          <NavLink to="/dashboard/settings" end className={({ isActive }) => submenuLinkClass(isActive)}>
+      
+                <NavLink to="/dashboard/settings" end className={({ isActive }) => submenuLinkClass(isActive)}>
             Profile
-          </NavLink>
-          <NavLink to="/dashboard/settings/terms" className={({ isActive }) => submenuLinkClass(isActive)}>
-            Terms & Conditions
-          </NavLink>
-          <NavLink to="/dashboard/settings/privacy" className={({ isActive }) => submenuLinkClass(isActive)}>
-            Privacy Policy
-          </NavLink>
-        </div>
-      )}
+          </NavLink> */}
+
     </>
   );
 

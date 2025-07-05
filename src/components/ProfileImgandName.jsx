@@ -93,7 +93,7 @@ const ProfileImgandName = () => {
           className={`absolute bottom-0 right-0 p-2 rounded-full transition-colors ${
             isUploading
               ? 'bg-gray-400 cursor-not-allowed'
-              : 'bg-green-600 hover:bg-green-700 text-white'
+              : 'bg-yellow-500 hover:bg-[#ffd69b] text-white'
           }`}
         >
           {isUploading ? <ImSpinner2 className="animate-spin text-lg" /> : <FiEdit className="text-lg" />}

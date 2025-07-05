@@ -44,9 +44,9 @@ const router = createBrowserRouter([
     { path: 'userroles', element: <div>user roles</div> },
     { path: 'support', element: <UserSupport></UserSupport> },
     { path: 'settings', element: <ProfileSettings /> },
-    { path: 'settings/terms', element: <TermsPage /> },
-    { path: 'settings/privacy', element: <Privacypage /> },
-  ]
+  //   { path: 'settings/terms', element: <TermsPage /> },
+  //   { path: 'settings/privacy', element: <Privacypage /> },
+   ]
 }
 ]);
 

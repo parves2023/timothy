@@ -113,8 +113,8 @@ const ProfileSettings = () => {
 
   return (
     <>
-      <div className="space-y-6 bg-gray-50 min-h-screen p-6">
-        <AdminProfile />
+      <div className="space-y-6 bg-gray-50 min-h-screen px-6">
+        <AdminProfile headingText='User Settings' />
         <div className="max-w-2xl mx-auto ">
           {/* Profile Header with Image */}
           <ProfileImgandName />
@@ -122,14 +122,14 @@ const ProfileSettings = () => {
           {/* Tabs */}
           <div className="flex justify-center border-b border-gray-200 mb-8 font-poppins">
             <button
-              className={`flex items-center gap-2 px-6 py-3 font-medium ${activeTab === 'profile' ? 'text-green-600 border-b-2 border-green-600' : 'text-gray-500 hover:text-gray-700'}`}
+              className={`flex items-center gap-2 px-6 py-3 font-medium ${activeTab === 'profile' ? 'text-gray-800 border-b-2 border-yellow-500' : 'text-gray-500 hover:text-gray-700'}`}
               onClick={() => setActiveTab('profile')}
             >
               <FiUser />
               Edit Profile
             </button>
             <button
-              className={`flex items-center gap-2 px-6 py-3 font-medium ${activeTab === 'password' ? 'text-green-600 border-b-2 border-green-600' : 'text-gray-500 hover:text-gray-700'}`}
+              className={`flex items-center gap-2 px-6 py-3 font-medium ${activeTab === 'password' ? 'text-gray-800 border-b-2 border-yellow-500' : 'text-gray-500 hover:text-gray-700'}`}
               onClick={() => setActiveTab('password')}
             >
               <FiLock />
@@ -205,7 +205,7 @@ const ProfileSettings = () => {
                 </div>
                 
                 <div className="flex justify-center mt-8">
-                  <button type="submit" className="px-6 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors">
+                  <button type="submit" className="px-6 py-2 bg-yellow-500 text-white rounded-md hover:bg-yellow-400 transition-colors">
                     Save Changes
                   </button>
                 </div>
@@ -282,7 +282,7 @@ const ProfileSettings = () => {
                 </div>
                 
                 <div className="flex justify-center mt-8">
-                  <button type="submit" className="px-6 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors">
+                  <button type="submit" className="px-6 py-2 bg-yellow-500 text-white rounded-md hover:bg-yellow-400 transition-colors">
                     Update Password
                   </button>
                 </div>
